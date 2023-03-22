@@ -3084,8 +3084,8 @@ func (f *Manager) annAfterSixConfs(completeChan *channeldb.OpenChannel,
 		// Otherwise, we'll wait until the funding transaction has
 		// reached 6 confirmations before announcing it.
 		numConfs := uint32(completeChan.NumConfsRequired)
-		if numConfs < 6 {
-			numConfs = 6
+		if numConfs < 3 {
+			numConfs = 3
 		}
 		txid := completeChan.FundingOutpoint.Hash
 		log.Debugf("Will announce channel %v after ChannelPoint"+
